@@ -1,13 +1,13 @@
 原文链接：http://socket.io/get-started/chat/
 
-本节将创建一个聊天应用，几乎不需要有对NodeJS或者SocketIO有什么了解，所以适合所有用户！
+#本节将创建一个聊天应用，几乎不需要有对NodeJS或者SocketIO有什么了解，所以适合所有用户！
 
-介绍：
+##介绍：
     使用如LAMP(PHP)之类的流行web应用栈技术搭建一个聊天应用一直很麻烦，它包括轮询服务器的变化,跟踪时间戳,这让它的反应速度比我们要求的要慢许多。
     对于大多数现存的实时聊天系统来说，Socket算是一个传统的解决方案，他提供了一个客户端和服务器端之间的双向通信通道。
     这意味着服务器可以推送信息到客户端。当你写了一条聊天信息时，我们的想法是，服务器会得到它并且把它发送到所有其他已连接的客户端。
 
-web框架：
+##web框架：
     我们最初要弄一个简单的HTML页面，页面包含一个表单和信息列表。我们将使用NodeJS的web框架express来完成这一步。此前要确保已安装NodeJS。
     首先，我们创建一个package.json 清单文件来描述我们的项目。建议你把它放到专用的空目录（我们将称之为chat-example）。
       {
@@ -39,7 +39,7 @@ web框架：
     如果你用浏览器打开：http://localhost:3000,会看到:
       https://i.cloudup.com/AOuGSHy7QM.png
 
-服务HTML：
+##服务HTML：
     到目前为止,我们在index.js里调用了res.send并传递给它一个HTML字符串。但是如果我们将应用的所有HTML代码都放到这里，
 我们的代码将变得混乱不堪。因此，我们将创建一个index.html文件并且为它提供服务。
 
@@ -74,7 +74,7 @@ web框架：
     如果你重启一下进程（通过 Ctrl+C 结束，然后node index重启）并刷新网页，将看到这样的效果：
       https://i.cloudup.com/985FgSH2HQ.png
 
-集成Socket.IO
+##集成Socket.IO
     Socket.IO由两部分组成：
       ～一个与Node.JS HTTP服务器集成(或加载在上)的服务器：socket.io
       ～一个在浏览器端加载的客户端库：socket.io-client
@@ -122,7 +122,7 @@ web框架：
     然后多次刷新一个tab，就会看到它有动作：
       https://i.cloudup.com/bOmy6xrJmi.png
 
-发出事件：
+##发出事件：
     Socket.IO的主要思想就是你可以发送和接收你想要做的任何事件以及任何数据。任何对象都可以被编码成JSON，
 同时二进制数据也支持。
     现在我们要这样做，当用户输入一个消息时，服务器获取到消息并作为一个chat message 事件。
@@ -147,7 +147,7 @@ index.html里的脚本片段看起来应该是下边这样：
     结果看起来应该是这样：
       <video autoplay="" loop="" width="100%"><source src="https://i.cloudup.com/transcoded/zboNrGSsai.mp4"></video>
 
-广播：
+##广播：
     我们接下来的目标就是把事件发送到其他用户。
     为了发送事件给每个人，Socket.IO 给我们提供了 io.emit：
       io.emit('some event', { for: 'everyone' });
@@ -177,7 +177,7 @@ index.html里的脚本片段看起来应该是下边这样：
     我们整个聊天应用大概就只用了20行代码！看起来会是怎样的呢？
       <video autoplay="" loop="" width="100%" controls=""><source src="https://i.cloudup.com/transcoded/J4xwRU9DRn.mp4"></video>
 
-课后练习：
+##课后练习：
     这里有一些增强该应用的想法：
       1.当某人上线或下线时广播给所有用户！
       2.添加昵称支持。
@@ -187,6 +187,6 @@ index.html里的脚本片段看起来应该是下边这样：
       6.添加私信。
       7.分享你的改进！
 
-获取这个例子：
+##获取这个例子：
     你可以在GitHub上找到https://github.com/guille/chat-example
       $ git clone https://github.com/guille/chat-example.git
