@@ -123,4 +123,70 @@ web框架：
       https://i.cloudup.com/bOmy6xrJmi.png
 
 发出事件：
-    Socket.IO的主要思想就是你可以发送和接收你想要做的任何事件，
+    Socket.IO的主要思想就是你可以发送和接收你想要做的任何事件以及任何数据。任何对象都可以被编码成JSON，
+同时二进制数据也支持。
+    现在我们要这样做，当用户输入一个消息时，服务器获取到消息并作为一个chat message 事件。
+index.html里的脚本片段看起来应该是下边这样：
+      <script src="/socket.io/socket.io.js"></script>
+      <script src="http://code.jquery.com/jquery-1.11.1.js"></script>
+      <script>
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+      </script>
+
+    我们在index.js里边打印出chat message事件：
+      io.on('connection', function(socket){
+        socket.on('chat message', function(msg){
+          console.log('message: ' + msg);
+        });
+      });
+    结果看起来应该是这样：
+      <video autoplay="" loop="" width="100%"><source src="https://i.cloudup.com/transcoded/zboNrGSsai.mp4"></video>
+
+广播：
+    我们接下来的目标就是把事件发送到其他用户。
+    为了发送事件给每个人，Socket.IO 给我们提供了 io.emit：
+      io.emit('some event', { for: 'everyone' });
+    如果你想给除了某个socket外的所有用户发消息，我们有broadcast标签：
+      io.on('connection', function(socket){
+        socket.broadcast.emit('hi');
+      });
+    在这种情况下,为了简单起见,我们将发送消息给所有人,包括发送方。
+      io.on('connection', function(socket){
+        socket.on('chat message', function(msg){
+          io.emit('chat message', msg);
+        });
+      });
+    在客户端，当我们捕获到一个chat message事件，我们就会把它插入页面。现在客户端所有脚本如下：
+      <script>
+        var socket = io();
+        $('form').submit(function(){
+          socket.emit('chat message', $('#m').val());
+          $('#m').val('');
+          return false;
+        });
+        socket.on('chat message', function(msg){
+          $('#messages').append($('<li>').text(msg));
+        });
+      </script>
+
+    我们整个聊天应用大概就只用了20行代码！看起来会是怎样的呢？
+      <video autoplay="" loop="" width="100%" controls=""><source src="https://i.cloudup.com/transcoded/J4xwRU9DRn.mp4"></video>
+
+课后练习：
+    这里有一些增强该应用的想法：
+      1.当某人上线或下线时广播给所有用户！
+      2.添加昵称支持。
+      3.不发送同样的消息给用户自己，而是当用户按下发送按钮时直接在页面添加消息。
+      4.添加"{用户}正在输入"的功能。
+      5.显示谁在线。
+      6.添加私信。
+      7.分享你的改进！
+
+获取这个例子：
+    你可以在GitHub上找到https://github.com/guille/chat-example
+      $ git clone https://github.com/guille/chat-example.git
