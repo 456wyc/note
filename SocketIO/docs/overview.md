@@ -230,5 +230,5 @@ Socket.IO 允许你发送和接收自定义事件，出了`connect`,`message`
         });
       });
     </script>
-如果你不关心重新连接逻辑等，可以看看[Engine.IO]()，这是
-Socket.IO使用的WebSocket语义传输层。
+如果你不关心重新连接逻辑等，可以看看[Engine.IO](https://github.com/Automattic/engine.io)，
+这是Socket.IO使用的WebSocket语义传输层。
