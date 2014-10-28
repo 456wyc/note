@@ -1,0 +1,32 @@
+#Client API([原文链接:http://socket.io/docs/client-api/](http://socket.io/docs/client-api/))
+##IO(url:String, opts:Object):Socket
+使用独立构建（例如:`/socket.io/socket.io.js`或CDN)或者
+调用`require('socket.io-client')返回的结果在`window`
+全局暴露`io`。
+
+当被调用时，会为给定的URL创建一个新的`Manager`，并且在以后调用时
+会尝试重用已存在的`Manager`，除非为`multiplex`选项传递`false`，
+传递这个选项就相当于传递`'force new connection':true`。
+
+剩下的options传递给`Manager`的构造函数（详情参见下边）。
+
+为URL里的path所指定的命名空间返回一个`socket`实例，默认是`/`。
+例如，如果`url`是`http://localhost/users`，一个传输链接将被
+建立到`http://localhost`,并且一个Socket.IO连接将被建立到`／user`。
+
+##IO#protocol
+这个客户端所工作的Socket.io协议修订编号。
+
+##IO#Socket
+`Socket`的构造函数的引用。
+
+##IO#Manager
+`Manager`的构造函数的引用。
+
+##IO#Emitter
+`Emitter`的构造函数的引用。
+
+##Manager(url:String, opts:Object)
+一个`Manager`代表到给定的Socket.IO 服务器的一个链接。
+一个或者更多的`Socket`实例和manager关联。可以通过每个
+`Socket`实例的`io`属性来访问manager。
