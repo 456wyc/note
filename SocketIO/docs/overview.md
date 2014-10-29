@@ -4,7 +4,7 @@
 ###安装
     $ npm install socket.io
 ---
-###通过Node的*http server*来使用
+###通过Node的`http server`来使用
 #####服务器端（app.js）
     var app = require('http').createServer(handler)
     var io = require('socket.io')(app);
@@ -41,7 +41,7 @@
       });
     </script>
 ---
-###通过*Express 3/4*来使用
+###通过 ***Express 3/4*** 来使用
 #####服务器端（app.js）
     var app = require('express').createServer();
     var io = require('socket.io')(app);
@@ -68,7 +68,7 @@
       });
     </script>
 ---
-###通过*Express框架*来使用
+###通过 ***Express框架*** 来使用
 #####服务器端（app.js）
     var app = require('express').createServer();
     var io = require('socket.io')(app);
@@ -115,10 +115,12 @@ Socket.IO 允许你发送和接收自定义事件，出了`connect`,`message`
     });
 ---
 ###限定你的命名空间
-如果你要控制特定应用的所有信息和事件的发送，请使用默认的命名空间*/*来
-工作。如果你想要利用第三方代码，或者和他人分享代码,socket.IO提供了一
-种方法来为一个socket指定命名空间。
-这里看看单连接复用的优点，它用一个连接取代了socket.io的两个*WebSocket*连接。
+如果你要控制特定应用的所有信息和事件的发送，请使用默认的命名空间
+ `/` 来工作。如果你想要利用第三方代码，或者和他人分享代码，
+ socket.IO提供了一种方法来为一个socket指定命名空间。
+
+这里看看单连接复用的优点，它用一个连接取代了socket.io的两个
+`WebSocket`连接。
 #####服务器端
     var io = require('socket.io').listen(80);
     var chat = io
@@ -178,9 +180,9 @@ Socket.IO 允许你发送和接收自定义事件，出了`connect`,`message`
 ---
 ###发送和接收数据([acknowledgements(ACKs)](http://baike.baidu.com/view/204040.htm?fr=aladdin))
 有时候，当客户端确认消息接收后你可能想要调用一个回调函数。
-为此，只需为*.send* , *.emit* 传递一个函数作为最后一个参数即可。
-更重要的是，当你使用*.emit* 时，如果你已经确认ACK，就意味着你也可
-以一起传递数据。
+为此，只需为`.send`,`.emit`传递一个函数作为最后一个参数即可。
+更重要的是，当你使用`.emit`时，如果你已经确认*ACK*，就意味着你
+也可以一起传递数据。
 #####服务器端
     var io = require('socket.io').listen(80);
 
@@ -200,7 +202,7 @@ Socket.IO 允许你发送和接收自定义事件，出了`connect`,`message`
     </script>
 ---
 ###广播信息
-对于广播，只需在调用*sned*， *emit* 时添加一个*broadcast* 标记。
+对于广播，只需在调用`sned`，`emit`时添加一个`broadcast`标记。
 广播意味着向除了发送广播的socket之外的其他socket都发送一个消息。
 #####服务器端
     var io = require('socket.io').listen(80);
@@ -211,7 +213,7 @@ Socket.IO 允许你发送和接收自定义事件，出了`connect`,`message`
 ---
 ###把它当跨浏览器WebSocket使用
 如果你仅仅是希望使用WebSocket语义，你也可以这样做，简单的利用
-*send* 并且监听*message* 事件：
+`send`并且监听`message`事件：
 #####服务器端(app.js)
     var io = require('socket.io').listen(80);
 

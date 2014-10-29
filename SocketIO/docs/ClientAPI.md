@@ -1,7 +1,7 @@
 #Client API([原文链接:http://socket.io/docs/client-api/](http://socket.io/docs/client-api/))
 ##IO(url:String, opts:Object):Socket
 使用独立构建（例如:`/socket.io/socket.io.js`或CDN)或者
-调用`require('socket.io-client')返回的结果在`window`
+调用`require('socket.io-client')`返回的结果在`window`
 全局暴露`io`。
 
 当被调用时，会为给定的URL创建一个新的`Manager`，并且在以后调用时
@@ -33,26 +33,26 @@
 `opt`也会在`Socket`初始化后传递给`engine.io`.
 
 选项：
-- `reconnection`是否自动重连接（`true`）
-- `reconnectionDelay` 等待多久尝试重新连接（1000）
-- `reconnectionDelayMax` 两次重连接间的最大等待时间（5000）。
+>- `reconnection`是否自动重连接（`true`）
+>- `reconnectionDelay` 等待多久尝试重新连接（1000）
+>- `reconnectionDelayMax` 两次重连接间的最大等待时间（5000）。
 每次尝试重连都增加`reconnectionDelay`指定的时间。
-- `timeout` 在`connect_error`和`connect_timeout`
+>- `timeout` 在`connect_error`和`connect_timeout`
 事件发射之前的连接超时（20000）。
 
 事件：
-*   `connect` 成功连接后触发。
-*   `connect_error` 连接错误时触发。
-    *   `Object`    错误对象。
-*   `connect_timeout` 连接超时时触发。
-*   `reconnect` 重连接成功是触发。
-    *   `Number` 重连接尝试次数。
-*   `reconnect_attempt` 尝试重连时触发。
-*   `reconnecting` 尝试重连是触发。
-    *   `Number` 尝试重连次数。
-*   `reconnect_error` 重连接出错时触发。
-    *   `Object` 错误对象。
-*   `reconnet_failed` 在`reconnectionAttempts`无法连接是触发。
+>*   `connect` 成功连接后触发。
+>*   `connect_error` 连接错误时触发。
+>    >*   `Object`    错误对象。
+>*   `connect_timeout` 连接超时时触发。
+>*   `reconnect` 重连接成功是触发。
+>    >*   `Number` 重连接尝试次数。
+>*   `reconnect_attempt` 尝试重连时触发。
+>*   `reconnecting` 尝试重连是触发。
+>    >*   `Number` 尝试重连次数。
+>*   `reconnect_error` 重连接出错时触发。
+>    >*   `Object` 错误对象。
+>*   `reconnet_failed` 在`reconnectionAttempts`无法连接是触发。
 
 以上事件被发送到依赖这个`Manager`进行重连的`socket`。
 
@@ -73,19 +73,19 @@
 
 ##Socket
 事件：
-*   `connect`. 连接是触发。
-*   `error`. 连接出错时触发。
-    Parameters:
-    * `Object` 错误数据。
-*   `disconnect`. 断开是触发。
-*   `reconnect`. 重连成功是触发。
-    Parameters:
-    * `Number` 尝试重连的次数
-*   `reconnect_attempt`. 尝试重连时触发。
-*   `reconnecting`. 尝试重连时触发。
-    Parameters:
-    *   `Number` 重连尝试次数。
-*   `reconnect_error`. 尝试重连出错时触发。
-    Parameters:
-    *`Object` 错误对象
-*   `reconnect_failed`.在reconnectionAttempts无法连接是触发。
+>*   `connect`. 连接是触发。
+>*   `error`. 连接出错时触发。
+>    >Parameters:
+>    * `Object` 错误数据。
+>*   `disconnect`. 断开是触发。
+>*   `reconnect`. 重连成功是触发。
+>    >Parameters:
+>    * `Number` 尝试重连的次数
+>*   `reconnect_attempt`. 尝试重连时触发。
+>*   `reconnecting`. 尝试重连时触发。
+>    >Parameters:
+>    *   `Number` 重连尝试次数。
+>*   `reconnect_error`. 尝试重连出错时触发。
+>    >Parameters:
+>    * `Object` 错误对象
+>*   `reconnect_failed`.在reconnectionAttempts无法连接是触发。

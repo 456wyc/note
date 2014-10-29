@@ -10,12 +10,14 @@
     // or
     var Server = require('socket.io');
     var io = new Server();
+
 ##Server(opts:Object)
-可选的，`Server`构造函数的第一、二个参数都是一个可选的对象（如下）。
+可选的，`Server`构造函数的第一、二个参数都是一个可选的对象
+（如下）。
 下列选项是被支持的：
-* `serveClient` 为Server#serveClient()设置值。
-* `path` 为Server#path()设置值。
-传递给socket.io的选项总是同样的传递给`engine.io` `Server`。
+>* `serveClient` 为Server#serveClient()设置值。
+>* `path` 为Server#path()设置值。
+传递给socket.io的选项总是同样的传递给`engine.io``Server`。
 参见[engine.io选项](https://github.com/learnboost/engine.io#methods-1).
 
 ##Server(srv:http#Server, opts:Object)
@@ -90,8 +92,8 @@
 代表一个通过路径名标识(如：*/char*)的给定范围下的套接字连接池。
 默认情况下客户端总是连接到`/`。
 事件：
-* connection/connect.触发一个连接。
-    * `Socket`进来的套接字。
+>* connection/connect.触发一个连接。
+>   >* `Socket`进来的套接字。
 
 ##Namespace#name:String
 命名空间的标识符。
