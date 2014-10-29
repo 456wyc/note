@@ -56,9 +56,12 @@ express已经安装好了，我们可以创建一个将用来启动应用的inde
 >   3. 让http服务器监听3000端口。
 
 如果你运行`node index.js`，你会看到如下情况：
+
 ![效果图](https://i.cloudup.com/-LsMcTduUg.png)
 
+
 如果你用浏览器打开：[http://localhost:3000](http://localhost:3000),会看到:
+
 ![效果图](https://i.cloudup.com/AOuGSHy7QM.png)
 
 ##服务HTML：
@@ -152,6 +155,7 @@ Socket.IO由两部分组成：
 如果你现在重新加载服务器和网站，你应该会看到一个输出
 “a user connected”。
 尝试多开一些页面，你将看到一些消息：
+
 ![效果图](https://i.cloudup.com/F5EBcTVDcd.png)
 
 每个socket 也会触发特殊的`disconnet`事件；
@@ -164,6 +168,7 @@ Socket.IO由两部分组成：
     });
 
 然后多次刷新一个tab，就会看到它有动作：
+
 ![效果图](https://i.cloudup.com/bOmy6xrJmi.png)
 
 
