@@ -1,3 +1,4 @@
+[原文链接:http://socket.io/docs/rooms-and-namespaces/](http://socket.io/docs/rooms-and-namespaces/)
 #Namespace(命名空间)
 Socket.IO允许你为你的socket指定命名空间，这本质上意味着
 分配不同的*节点*或*路径*。
